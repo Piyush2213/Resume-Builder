@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Resume Builder</title>
+</head>
+
+<body>
+    <div class="container" id="resume-form">
+        <h1 class="text-center my-3">Resume Maker</h1>
+        <p class="text-center my-3">Cloud Counselling</p>
+        <div class="row">
+
+            <!-- Basic Information Section -->
+            <div class="col-md-8">
+                <h2>Basic Information</h2>
+
+                <div class="form-group">
+                    <label for="name">First Name:</label>
+                    <input type="text" id="name" placeholder="Enter your full name" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Phone:</label>
+                    <input type="text" id="phoneNumber" placeholder="Enter your mobile number" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" placeholder="Enter your email id" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" type="text" placeholder="Enter your full address"
+                        class="form-control"></textarea>
+                </div>
+
+
+                <div class="form-group mt-2" id="skill">
+                    <label for="workExperience">Skills:</label>
+                    <textarea type="text" class="form-control skillField" placeholder="Add your skills"></textarea>
+                    <div class="container text-center mt-3" id="skillAddButton">
+                        <button onclick="addSField()" class="btn btn-dark btn-sm">More</button>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2" id="lang">
+                    <label for="workExperience">Languages:</label>
+                    <textarea type="text" class="form-control langField"
+                        placeholder="Add commucational languages"></textarea>
+                    <div class="container text-center mt-3" id="langAddButton">
+                        <button onclick="addLField()" class="btn btn-dark btn-sm">More</button>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group mt-3">
+                    <label for="image">Select a photo for resume:</label>
+                    <input type="file" id="img" class="form-control" />
+                </div>
+
+                <h2 class="mt-4">Social Link Section</h2>
+
+                <div class="form-group mt-2">
+                    <label for="linkedIn">LinkedIn:</label>
+                    <input type="text" id="linkedIn" placeholder="Enter your LinkedIn id" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="gitLink">GitHub:</label>
+                    <input type="text" id="gitLink" placeholder="Enter your GitHub id" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="portfolioLink">Personal Website:</label>
+                    <input type="text" id="portfolioLink" placeholder="Enter your personal link" class="form-control">
+                </div>
+            </div>
+
+            <!-- Additional Information Section -->
+            <div class="col-md-6 mt-4">
+                <h2>Additional Information</h2>
+
+                <div class="form-group mt-2">
+                    <label for="profile">Profile :</label>
+                    <textarea type="text" id="profile" placeholder=" Tell about yourself"
+                        class="form-control"></textarea>
+                </div>
+
+                <div class="form-group mt-2" id="pwe">
+                    <label for="workExperience">Work Experience:</label>
+                    <textarea type="text" class="form-control weField"
+                        placeholder="Describe your previous work experiences"></textarea>
+
+                    <!-- New Dynamic Work experience works here -->
+                    <div class="container text-center mt-3" id="weAddButton">
+                        <button onclick="addEField()" class="btn btn-dark btn-sm">Add More</button>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2" id="ad">
+                    <label for="academicDetail">Academic Detail:</label>
+                    <textarea type="text" class="form-control aqField"
+                        placeholder="Write your academic work experiences"></textarea>
+
+                    <div class="container text-center mt-3" id="aqAddButton">
+                        <button onclick="addAField()" class="btn btn-dark btn-sm">Add More</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="container text-center mt-4">
+            <button onclick="generateCV()" class="btn btn-primary btn-lg">Generate CV</button>
+        </div>
+    </div>
+
+    <!--Resume Template-->
+    <div class="container" id="resume-template">
+        <div class="row">
+            <div class="col-md-4 text-center py-5 background">
+                <img src="https://i.pinimg.com/originals/4a/90/19/4a9019fbeb9799a1a0c1c3c103353ded.jpg" alt=""
+                    class="img-fluid userimg" id='tImg' />
+                <div class="container">
+                    <p id="tName">Piyush Yadav</p>
+                    <p id="tPhone">+918295518835, +918295518305</p>
+                    <p id="tEmail">xyz@gmail.com</p>
+                    <p id="tAddress">346 Khatoti Sultanpur Narnaul 123001</p>
+                    <hr />
+                    <p id="tLinked"><a href="#1">www.linkedIn.com</a></p>
+                    <p id="tGit"><a href="#1">www.github.com</a></p>
+                    <p id="tPortfolio"><a href="#1">www.portfolio.com</a></p>
+                    <hr />
+                    <!--Skills Experience-->
+                    <div class="skills-section mt-4">
+                        <h3 class="skills-heading background-color-aquamarine">Skills</h3>
+                        <ul id="tSkill">
+                            <li>Lorem</li>
+                            <li>Lorem,</li>
+                            <li>Lorem ipsum,</li>
+                        </ul>
+                    </div>
+                    <hr />
+                    <!--Language Experience-->
+                    <div class="lang-section mt-4">
+                        <h3 class="lang-heading background-color-aquamarine">Languages</h3>
+                        <ul id="tLang">
+                            <li>Lorem</li>
+                            <li>Lorem,</li>
+                            <li>Lorem ipsum,</li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="col-md-8 py-5">
+
+                <!--Profile-->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Profile</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="tProfile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequuntur
+                            qui, nostrum
+                            minus numquam ipsam nihil incidunt mollitia assumenda corporis sunt eveniet optio voluptatem
+                            odit
+                            cupiditate molestiae doloribus quod quos! Modi facilis excepturi atque at sed asperiores
+                            provident
+                            officia ipsam, impedit nobis, perspiciatis animi debitis natus eveniet quia quos tempora.
+                        </p>
+                    </div>
+                </div>
+
+
+                <!--Work Experience-->
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h3>Work Experience</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="tWK">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, omnis exercitationem ab
+                                officia est placeat? Ea sapiente dignissimos illum maxime eum quo beatae earum omnis vel
+                                laborum, totam, corporis cum quae nostrum iure non reprehenderit sunt voluptatum hic
+                                magni nihil. Numquam aspernatur quam facilis dolore ex inventore temporibus dolorum
+                                optio.</li>
+                            <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora praesentium ullam
+                                labore recusandae. Placeat dolore iure repudiandae est similique voluptate veniam a
+                                saepe suscipit, amet soluta neque porro hic impedit maxime dolorem quod dicta, explicabo
+                                molestiae minima qui animi. Facilis fugit beatae totam, eveniet architecto quas magnam
+                                velit neque hic.
+                            </li>
+                            <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita blanditiis quis
+                                maiores officiis minus, quo voluptates quam sequi nisi tempore illo vel, iure dolorum
+                                ratione quos. Officiis expedita itaque esse ea eos vel, illo facere, numquam sunt
+                                perferendis dolore sequi natus a maxime, explicabo quasi architecto eligendi labore
+                                dolores corporis.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Academic Qualification-->
+                <div class="card mt-4 ">
+                    <div class="card-header background">
+                        <h3>Academic</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="tAQ">
+                            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, nesciunt sequi
+                                culpa dignissimos temporibus perferendis! Minima ea ullam consequuntur nihil qui
+                                aspernatur ut laboriosam, eum ipsum sunt enim aut veniam dolorem perferendis, mollitia
+                                et cum excepturi reiciendis repudiandae officiis quo quasi provident, eligendi
+                                explicabo. Dignissimos quisquam doloribus officia eos laudantium.</li>
+
+
+                            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, nesciunt sequi
+                                culpa dignissimos temporibus perferendis! Minima ea ullam consequuntur nihil qui
+                                aspernatur ut laboriosam, eum ipsum sunt enim aut veniam dolorem perferendis, mollitia
+                                et cum excepturi reiciendis repudiandae officiis quo quasi provident, eligendi
+                                explicabo. Dignissimos quisquam doloribus officia eos laudantium.</li>
+
+                            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, nesciunt sequi
+                                culpa dignissimos temporibus perferendis! Minima ea ullam consequuntur nihil qui
+                                aspernatur ut laboriosam, eum ipsum sunt enim aut veniam dolorem perferendis, mollitia
+                                et cum excepturi reiciendis repudiandae officiis quo quasi provident, eligendi
+                                explicabo. Dignissimos quisquam doloribus officia eos laudantium.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container mt-3 text-center">
+                    <button onclick="printCV()" class="btn background">
+                        Print
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</body>
+
+</html>
